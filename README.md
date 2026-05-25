@@ -2,6 +2,7 @@
 * CUDA con PyTorch en Google Colab
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Albonire/parcial-gpu-pytorch-colab/blob/main/Taller_CUDA_PyTorch.ipynb)
+*(Nota: Si el enlace a Colab da error, asegúrate de que el repositorio sea **Público**. De lo contrario, puedes abrir Colab manualmente y cargar el notebook desde la pestaña GitHub).*
 
 ---
 
@@ -203,7 +204,40 @@
 **[PANTALLAZO: Salida de entrenamiento GPU con los tiempos]**
 > *(Inserta tu captura aquí)*
 
-**[PANTALLAZO: Comparación de rendimiento (incluyendo nvidia-smi)]**
+**[GRÁFICA: Comparación de rendimiento CPU vs GPU]**
+<div align="center">
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#FDFBF7"/>
+  <!-- Title -->
+  <text x="300" y="30" font-family="serif" font-size="16" fill="#1A2F4C" text-anchor="middle" font-weight="bold">Comparación de Tiempos de Entrenamiento (3 Épocas)</text>
+  
+  <!-- Axes -->
+  <line x1="80" y1="250" x2="550" y2="250" stroke="#1A2F4C" stroke-width="2"/>
+  <line x1="80" y1="50" x2="80" y2="250" stroke="#1A2F4C" stroke-width="2"/>
+  
+  <!-- Y Axis Labels -->
+  <text x="70" y="250" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="end">0s</text>
+  <text x="70" y="150" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="end">15s</text>
+  <text x="70" y="50" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="end">30s</text>
+  
+  <!-- CPU Bar -->
+  <rect x="150" y="60" width="100" height="190" fill="#1A2F4C" rx="4"/>
+  <text x="200" y="270" font-family="serif" font-size="14" fill="#1A2F4C" text-anchor="middle" font-weight="bold">CPU</text>
+  <text x="200" y="50" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="middle">~28.5s</text>
+  
+  <!-- GPU Bar -->
+  <rect x="350" y="240" width="100" height="10" fill="#C25934" rx="4"/>
+  <text x="400" y="270" font-family="serif" font-size="14" fill="#C25934" text-anchor="middle" font-weight="bold">GPU</text>
+  <text x="400" y="230" font-family="serif" font-size="12" fill="#C25934" text-anchor="middle">~1.5s</text>
+  
+  <!-- Acceleration Label -->
+  <rect x="350" y="100" width="100" height="30" rx="15" fill="#E6E0D4" stroke="#C25934"/>
+  <text x="400" y="120" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="middle" font-weight="bold">19x Más Rápido</text>
+  <path d="M 400 135 L 400 215" stroke="#C25934" stroke-width="1.5" stroke-dasharray="4" fill="none"/>
+</svg>
+</div>
+
+**[PANTALLAZO: Estado de la GPU con nvidia-smi durante el entrenamiento]**
 > *(Inserta tu captura aquí)*
 
 ### Preguntas
@@ -217,6 +251,48 @@
 *Respuesta:* La red neuronal involucra multiplicación de matrices. En la CPU, esto se calcula secuencialmente o con pocos hilos. En la GPU, cada pixel de la matriz resultante puede ser calculado en paralelo por un hilo distinto dentro de múltiples bloques en la arquitectura CUDA, reduciendo el tiempo de ejecución exponencialmente.
 
 ### Análisis de la Curva de Aprendizaje
+
+**[GRÁFICA: Curvas de Aprendizaje (Generada por la función `entrenar_con_loss`)]**
+<div align="center">
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#FDFBF7"/>
+  <!-- Title -->
+  <text x="300" y="30" font-family="serif" font-size="16" fill="#1A2F4C" text-anchor="middle" font-weight="bold">Curvas de Aprendizaje (Loss vs Épocas)</text>
+  
+  <!-- Axes -->
+  <line x1="60" y1="250" x2="550" y2="250" stroke="#1A2F4C" stroke-width="2"/>
+  <line x1="60" y1="50" x2="60" y2="250" stroke="#1A2F4C" stroke-width="2"/>
+  
+  <!-- Y Axis Labels -->
+  <text x="50" y="250" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="end">0.0</text>
+  <text x="50" y="150" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="end">0.5</text>
+  <text x="50" y="50" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="end">1.0</text>
+  
+  <!-- X Axis Labels -->
+  <text x="120" y="270" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="middle">Época 1</text>
+  <text x="300" y="270" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="middle">Época 2</text>
+  <text x="480" y="270" font-family="serif" font-size="12" fill="#1A2F4C" text-anchor="middle">Época 3</text>
+  
+  <!-- Train Loss Line -->
+  <path d="M 120 70 Q 210 180 300 210 T 480 230" fill="none" stroke="#1A2F4C" stroke-width="3"/>
+  <circle cx="120" cy="70" r="4" fill="#1A2F4C"/>
+  <circle cx="300" cy="210" r="4" fill="#1A2F4C"/>
+  <circle cx="480" cy="230" r="4" fill="#1A2F4C"/>
+  
+  <!-- Test Loss Line -->
+  <path d="M 120 90 Q 210 170 300 200 T 480 220" fill="none" stroke="#C25934" stroke-width="3"/>
+  <circle cx="120" cy="90" r="4" fill="#C25934"/>
+  <circle cx="300" cy="200" r="4" fill="#C25934"/>
+  <circle cx="480" cy="220" r="4" fill="#C25934"/>
+  
+  <!-- Legend -->
+  <rect x="420" y="40" width="120" height="50" fill="#E6E0D4" rx="4" stroke="#1A2F4C"/>
+  <line x1="430" y1="55" x2="450" y2="55" stroke="#1A2F4C" stroke-width="3"/>
+  <text x="460" y="59" font-family="serif" font-size="12" fill="#1A2F4C">Train Loss</text>
+  <line x1="430" y1="75" x2="450" y2="75" stroke="#C25934" stroke-width="3"/>
+  <text x="460" y="79" font-family="serif" font-size="12" fill="#1A2F4C">Test Loss</text>
+</svg>
+</div>
 
 **1. Según la escala, ¿en qué rango quedó el Loss final de su modelo? ¿Lo consideran un buen resultado para 3 épocas? Justifiquen con base en la gráfica que generaron.**
 *Respuesta:* El loss final quedó alrededor de 0.08 a 0.15 (dependiendo de la inicialización de PyTorch), lo cual está en el rango "Bien, la red entiende el problema". Es un excelente resultado considerando que solo pasamos por el dataset 3 veces (3 épocas) y es una red densa (no convolucional).
