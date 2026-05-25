@@ -69,7 +69,7 @@
 
 **2. Diagramen en Excalidraw el flujo de un tensor desde que se crea en CPU hasta que se opera en GPU y el resultado vuelve a CPU. Etiqueten cada flecha con la operacion de PyTorch correspondiente.**
 
-> Inserta tu diagrama Excalidraw aqui: `![Flujo tensor](capturas/2_diagrama_tensor.png)`
+![Flujo tensor CPU-GPU](diagramas/2_flujo_tensor.svg)
 
 **3. Por que es una buena practica usar la variable `device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')` en lugar de escribir `'cuda'` directamente en el codigo?**
 
@@ -99,7 +99,7 @@
 
 **3. Cada imagen tiene forma `[1, 28, 28]`. Diagramen en Excalidraw que representa cada dimension y como luce ese tensor visualmente.**
 
-> Inserta tu diagrama Excalidraw aqui: `![Tensor 1x28x28](capturas/3_diagrama_tensor.png)`
+![Tensor 1x28x28](diagramas/3_tensor_shape.svg)
 
 ---
 
@@ -113,7 +113,7 @@
 
 **1. Diagramen en Excalidraw la arquitectura completa de la red: entrada -> capa 1 -> capa 2 -> salida. Indiquen el numero de neuronas en cada capa y que funcion de activacion se usa entre ellas.**
 
-> Inserta tu diagrama Excalidraw aqui: `![Diagrama red](capturas/4_diagrama_red.png)`
+![Arquitectura red](diagramas/4_arquitectura_red.svg)
 
 **2. Por que la capa de entrada tiene exactamente 784 neuronas y la de salida exactamente 10? Que pasaria si pusieran 11 neuronas en la salida?**
 
@@ -245,7 +245,7 @@
 
 **2. Diagramen en Excalidraw el flujo completo del taller: desde la activacion de la GPU hasta la prediccion final. Usenlo como resumen visual de todo lo que hicieron.**
 
-> Inserta tu diagrama Excalidraw aqui: `![Flujo completo](capturas/8_flujo_completo.png)`
+![Flujo completo](diagramas/8_flujo_completo.svg)
 
 **3. Si tuvieran que explicarle este taller a alguien que nunca ha programado, como describirian en una sola analogia lo que hace una red neuronal entrenandose en una GPU?**
 

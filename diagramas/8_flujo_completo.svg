@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="500" viewBox="0 0 700 500">
+  <rect width="100%" height="100%" fill="white"/>
+  
+  <!-- Step 1: Activate GPU -->
+  <rect x="50" y="30" width="160" height="50" rx="25" fill="none" stroke="black" stroke-width="2"/>
+  <text x="130" y="60" font-family="monospace" font-size="12" fill="black" text-anchor="middle">Activar GPU</text>
+  
+  <!-- Arrow down -->
+  <line x1="130" y1="80" x2="130" y2="110" stroke="black" stroke-width="1.5"/>
+  <polygon points="130,110 125,100 135,100" fill="black"/>
+  
+  <!-- Step 2: Verify -->
+  <rect x="50" y="110" width="160" height="50" rx="6" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="130" y="135" font-family="monospace" font-size="11" fill="black" text-anchor="middle">torch.cuda</text>
+  <text x="130" y="150" font-family="monospace" font-size="11" fill="black" text-anchor="middle">.is_available()</text>
+  
+  <!-- Arrow right -->
+  <line x1="210" y1="135" x2="270" y2="135" stroke="black" stroke-width="1.5"/>
+  <polygon points="270,135 260,130 260,140" fill="black"/>
+  
+  <!-- Step 3: Load MNIST -->
+  <rect x="270" y="110" width="160" height="50" rx="6" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="350" y="135" font-family="monospace" font-size="11" fill="black" text-anchor="middle">Cargar MNIST</text>
+  <text x="350" y="150" font-family="monospace" font-size="10" fill="black" text-anchor="middle">60k train / 10k test</text>
+  
+  <!-- Arrow right -->
+  <line x1="430" y1="135" x2="490" y2="135" stroke="black" stroke-width="1.5"/>
+  <polygon points="490,135 480,130 480,140" fill="black"/>
+  
+  <!-- Step 4: Create model -->
+  <rect x="490" y="110" width="160" height="50" rx="6" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="570" y="135" font-family="monospace" font-size="11" fill="black" text-anchor="middle">RedNeuronal()</text>
+  <text x="570" y="150" font-family="monospace" font-size="10" fill="black" text-anchor="middle">784-256-128-10</text>
+  
+  <!-- Arrow down -->
+  <line x1="570" y1="160" x2="570" y2="200" stroke="black" stroke-width="1.5"/>
+  <polygon points="570,200 565,190 575,190" fill="black"/>
+  
+  <!-- Step 5: Move to GPU -->
+  <rect x="490" y="200" width="160" height="50" rx="6" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="570" y="225" font-family="monospace" font-size="11" fill="black" text-anchor="middle">modelo.to('cuda')</text>
+  <text x="570" y="240" font-family="monospace" font-size="10" fill="black" text-anchor="middle">datos.to('cuda')</text>
+  
+  <!-- Arrow left -->
+  <line x1="490" y1="225" x2="430" y2="225" stroke="black" stroke-width="1.5"/>
+  <polygon points="430,225 440,220 440,230" fill="black"/>
+  
+  <!-- Step 6: Train CPU -->
+  <rect x="270" y="200" width="160" height="50" rx="6" fill="none" stroke="black" stroke-width="2"/>
+  <text x="350" y="220" font-family="monospace" font-size="11" fill="black" text-anchor="middle">Entrenar CPU</text>
+  <text x="350" y="237" font-family="monospace" font-size="10" fill="black" text-anchor="middle">3 epocas</text>
+  
+  <!-- Arrow down -->
+  <line x1="350" y1="250" x2="350" y2="280" stroke="black" stroke-width="1.5"/>
+  <polygon points="350,280 345,270 355,270" fill="black"/>
+  
+  <!-- Step 7: Train GPU -->
+  <rect x="270" y="280" width="160" height="50" rx="6" fill="none" stroke="black" stroke-width="2"/>
+  <text x="350" y="300" font-family="monospace" font-size="11" fill="black" text-anchor="middle">Entrenar GPU</text>
+  <text x="350" y="317" font-family="monospace" font-size="10" fill="black" text-anchor="middle">3 epocas</text>
+  
+  <!-- Arrow down -->
+  <line x1="350" y1="330" x2="350" y2="360" stroke="black" stroke-width="1.5"/>
+  <polygon points="350,360 345,350 355,350" fill="black"/>
+  
+  <!-- Step 8: Compare -->
+  <rect x="270" y="360" width="160" height="50" rx="6" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="350" y="380" font-family="monospace" font-size="11" fill="black" text-anchor="middle">Comparar tiempos</text>
+  <text x="350" y="397" font-family="monospace" font-size="10" fill="black" text-anchor="middle">GPU ~Xx mas rapida</text>
+  
+  <!-- Arrow right -->
+  <line x1="430" y1="385" x2="490" y2="385" stroke="black" stroke-width="1.5"/>
+  <polygon points="490,385 480,380 480,390" fill="black"/>
+  
+  <!-- Step 9: Evaluate -->
+  <rect x="490" y="360" width="160" height="50" rx="6" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="570" y="380" font-family="monospace" font-size="11" fill="black" text-anchor="middle">Evaluar precision</text>
+  <text x="570" y="397" font-family="monospace" font-size="10" fill="black" text-anchor="middle">>95% en test</text>
+  
+  <!-- Arrow down -->
+  <line x1="570" y1="410" x2="570" y2="440" stroke="black" stroke-width="1.5"/>
+  <polygon points="570,440 565,430 575,430" fill="black"/>
+  
+  <!-- Step 10: Own digit -->
+  <rect x="490" y="440" width="160" height="50" rx="6" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="570" y="460" font-family="monospace" font-size="11" fill="black" text-anchor="middle">Probar digito</text>
+  <text x="570" y="477" font-family="monospace" font-size="10" fill="black" text-anchor="middle">propio + Softmax</text>
+  
+  <!-- Training loop detail -->
+  <rect x="50" y="280" width="180" height="80" rx="6" fill="none" stroke="black" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="140" y="300" font-family="monospace" font-size="10" fill="black" text-anchor="middle">Ciclo por epoca:</text>
+  <text x="140" y="315" font-family="monospace" font-size="10" fill="black" text-anchor="middle">1. Forward pass</text>
+  <text x="140" y="330" font-family="monospace" font-size="10" fill="black" text-anchor="middle">2. Calcular loss</text>
+  <text x="140" y="345" font-family="monospace" font-size="10" fill="black" text-anchor="middle">3. Backward + step</text>
+  
+  <!-- Dashed line connecting detail to training -->
+  <line x1="230" y1="305" x2="270" y2="305" stroke="black" stroke-width="1" stroke-dasharray="3,3"/>
+</svg>

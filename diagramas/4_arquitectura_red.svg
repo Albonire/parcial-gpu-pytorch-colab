@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="300" viewBox="0 0 750 300">
+  <rect width="100%" height="100%" fill="white"/>
+  
+  <!-- Input layer -->
+  <rect x="30" y="60" width="100" height="180" rx="6" fill="none" stroke="black" stroke-width="2"/>
+  <text x="80" y="145" font-family="monospace" font-size="13" fill="black" text-anchor="middle">Entrada</text>
+  <text x="80" y="165" font-family="monospace" font-size="16" fill="black" text-anchor="middle" font-weight="bold">784</text>
+  <text x="80" y="185" font-family="monospace" font-size="10" fill="black" text-anchor="middle">(28x28)</text>
+  
+  <!-- Neurons dots for input -->
+  <circle cx="80" cy="80" r="3" fill="black"/>
+  <circle cx="80" cy="92" r="3" fill="black"/>
+  <circle cx="80" cy="104" r="3" fill="black"/>
+  <circle cx="80" cy="112" r="2" fill="black"/>
+  <circle cx="80" cy="118" r="2" fill="black"/>
+  <circle cx="80" cy="124" r="2" fill="black"/>
+  
+  <!-- Arrow 1: Flatten -->
+  <line x1="130" y1="150" x2="195" y2="150" stroke="black" stroke-width="1.5"/>
+  <polygon points="195,150 185,145 185,155" fill="black"/>
+  <text x="162" y="140" font-family="monospace" font-size="10" fill="black" text-anchor="middle">Flatten</text>
+  
+  <!-- Hidden layer 1 -->
+  <rect x="200" y="40" width="100" height="220" rx="6" fill="none" stroke="black" stroke-width="2"/>
+  <text x="250" y="145" font-family="monospace" font-size="13" fill="black" text-anchor="middle">Oculta 1</text>
+  <text x="250" y="165" font-family="monospace" font-size="16" fill="black" text-anchor="middle" font-weight="bold">256</text>
+  
+  <!-- Neurons dots -->
+  <circle cx="250" cy="60" r="3" fill="black"/>
+  <circle cx="250" cy="72" r="3" fill="black"/>
+  <circle cx="250" cy="84" r="3" fill="black"/>
+  <circle cx="250" cy="96" r="3" fill="black"/>
+  <circle cx="250" cy="108" r="2" fill="black"/>
+  <circle cx="250" cy="116" r="2" fill="black"/>
+  
+  <!-- Arrow 2: ReLU -->
+  <line x1="300" y1="150" x2="365" y2="150" stroke="black" stroke-width="1.5"/>
+  <polygon points="365,150 355,145 355,155" fill="black"/>
+  <text x="332" y="140" font-family="monospace" font-size="10" fill="black" text-anchor="middle">ReLU</text>
+  
+  <!-- Hidden layer 2 -->
+  <rect x="370" y="60" width="100" height="180" rx="6" fill="none" stroke="black" stroke-width="2"/>
+  <text x="420" y="145" font-family="monospace" font-size="13" fill="black" text-anchor="middle">Oculta 2</text>
+  <text x="420" y="165" font-family="monospace" font-size="16" fill="black" text-anchor="middle" font-weight="bold">128</text>
+  
+  <!-- Neurons dots -->
+  <circle cx="420" cy="80" r="3" fill="black"/>
+  <circle cx="420" cy="92" r="3" fill="black"/>
+  <circle cx="420" cy="104" r="3" fill="black"/>
+  <circle cx="420" cy="116" r="2" fill="black"/>
+  <circle cx="420" cy="124" r="2" fill="black"/>
+  
+  <!-- Arrow 3: ReLU -->
+  <line x1="470" y1="150" x2="535" y2="150" stroke="black" stroke-width="1.5"/>
+  <polygon points="535,150 525,145 525,155" fill="black"/>
+  <text x="502" y="140" font-family="monospace" font-size="10" fill="black" text-anchor="middle">ReLU</text>
+  
+  <!-- Output layer -->
+  <rect x="540" y="90" width="100" height="120" rx="6" fill="none" stroke="black" stroke-width="2"/>
+  <text x="590" y="145" font-family="monospace" font-size="13" fill="black" text-anchor="middle">Salida</text>
+  <text x="590" y="165" font-family="monospace" font-size="16" fill="black" text-anchor="middle" font-weight="bold">10</text>
+  
+  <!-- Output neurons (10 digits) -->
+  <circle cx="590" cy="105" r="3" fill="black"/>
+  <circle cx="590" cy="117" r="3" fill="black"/>
+  <circle cx="590" cy="129" r="3" fill="black"/>
+  
+  <!-- Arrow to predictions -->
+  <line x1="640" y1="150" x2="700" y2="150" stroke="black" stroke-width="1.5"/>
+  <polygon points="700,150 690,145 690,155" fill="black"/>
+  
+  <!-- Prediction labels -->
+  <text x="710" y="120" font-family="monospace" font-size="10" fill="black" text-anchor="start">0</text>
+  <text x="710" y="135" font-family="monospace" font-size="10" fill="black" text-anchor="start">1</text>
+  <text x="710" y="150" font-family="monospace" font-size="10" fill="black" text-anchor="start">...</text>
+  <text x="710" y="165" font-family="monospace" font-size="10" fill="black" text-anchor="start">9</text>
+  
+  <!-- Connection lines (sparse, showing concept) -->
+  <line x1="130" y1="100" x2="200" y2="80" stroke="black" stroke-width="0.3" opacity="0.4"/>
+  <line x1="130" y1="100" x2="200" y2="150" stroke="black" stroke-width="0.3" opacity="0.4"/>
+  <line x1="130" y1="200" x2="200" y2="200" stroke="black" stroke-width="0.3" opacity="0.4"/>
+  <line x1="130" y1="200" x2="200" y2="100" stroke="black" stroke-width="0.3" opacity="0.4"/>
+  
+  <line x1="300" y1="80" x2="370" y2="100" stroke="black" stroke-width="0.3" opacity="0.4"/>
+  <line x1="300" y1="150" x2="370" y2="150" stroke="black" stroke-width="0.3" opacity="0.4"/>
+  <line x1="300" y1="200" x2="370" y2="180" stroke="black" stroke-width="0.3" opacity="0.4"/>
+  
+  <line x1="470" y1="100" x2="540" y2="130" stroke="black" stroke-width="0.3" opacity="0.4"/>
+  <line x1="470" y1="150" x2="540" y2="150" stroke="black" stroke-width="0.3" opacity="0.4"/>
+  <line x1="470" y1="200" x2="540" y2="170" stroke="black" stroke-width="0.3" opacity="0.4"/>
+  
+  <!-- Parameters count -->
+  <text x="165" y="280" font-family="monospace" font-size="10" fill="black" text-anchor="middle">784x256</text>
+  <text x="165" y="293" font-family="monospace" font-size="10" fill="black" text-anchor="middle">= 200,704</text>
+  
+  <text x="335" y="280" font-family="monospace" font-size="10" fill="black" text-anchor="middle">256x128</text>
+  <text x="335" y="293" font-family="monospace" font-size="10" fill="black" text-anchor="middle">= 32,768</text>
+  
+  <text x="505" y="280" font-family="monospace" font-size="10" fill="black" text-anchor="middle">128x10</text>
+  <text x="505" y="293" font-family="monospace" font-size="10" fill="black" text-anchor="middle">= 1,280</text>
+</svg>
