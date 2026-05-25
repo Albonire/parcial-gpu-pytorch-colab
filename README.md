@@ -331,7 +331,7 @@
 
 ### Preguntas
 **1. ¿El modelo acertó con tu dígito dibujado a mano? Si falló, ¿por qué creen que se equivocó? Comparen su imagen con las del dataset MNIST — ¿se ven similares o muy diferentes?**
-*Respuesta:* [Tu respuesta aquí, dependiendo de si falló o no tu digito. Ejemplo: Sí acertó, porque el dígito lo dibujé grueso y muy centrado, casi idéntico al estilo MNIST.]
+*Respuesta:* No, el modelo no acertó en ninguno de los dos casos: ambos predijeron el dígito **2** en lugar del **8** dibujado. Se equivocó por dos razones fundamentales. En primer lugar, los trazos del 8 son muy delgados en comparación con el grosor habitual de los caracteres en el dataset MNIST (donde las líneas son gruesas y densas). En segundo lugar, como se observa en la etapa de "Invertida", la iluminación física al tomar la foto creó sombras y gradientes de color grisáceo a los lados y en la esquina inferior izquierda. La red neuronal perceptrón no tiene noción espacial de objetos; procesa píxel a píxel las intensidades de brillo, por lo que interpretó esa neblina gris de fondo como píxeles activos, deformando visualmente el patrón y haciendo que pareciera un 2 o un 3 para sus capas densas.
 
 **2. El preprocesamiento invierte los colores de la imagen (`ImageOps.invert`). ¿Por qué es necesario hacer eso antes de pasarla al modelo? ¿Qué pasaría si no se hiciera?**
 *Respuesta:* MNIST consiste en trazos blancos sobre fondos completamente negros, donde el negro equivale numéricamente a `0.0`. Si le pasamos una imagen en Paint de un trazo negro en fondo blanco, el fondo de la imagen sería equivalente a una "activación masiva" de `1.0`, confundiendo por completo los filtros de la red.
@@ -344,10 +344,10 @@
 ### Bonus: ¿Qué tan seguro está el modelo?
 
 **1. ¿Cuál dígito tiene la probabilidad más alta en cada modelo? ¿Coincide con la predicción?**
-*Respuesta:* [Ejemplo: El dígito con más probabilidad fue el 7 con un 98%, coincidiendo con la predicción final de 7.]
+*Respuesta:* El dígito con mayor probabilidad en la GPU fue el **2** con un **67.4%**, seguido del **3** con un **30.9%**. En la CPU, el dígito con mayor probabilidad también fue el **2** con un **94.3%**, seguido del **3** con un **3.6%**. En ambos modelos la probabilidad más alta coincide perfectamente con la predicción final de 2.
 
 **2. ¿El modelo está seguro o dudando? ¿Cómo lo saben mirando los porcentajes?**
-*Respuesta:* Si un número obtiene el ~90% de probabilidad y el resto 0.001%, está sumamente seguro. Si la distribución está en 45% y 55% entre dos dígitos, el modelo está adivinando/dudando de la inferencia.
+*Respuesta:* En la GPU, el modelo está claramente dudando, repartiendo casi un tercio de su probabilidad (30.9%) a la clase del 3. Sin embargo, en la CPU el modelo está falsamente muy seguro con un 94.3% asignado al 2. Esta discrepancia entre procesadores se debe a pequeñas diferencias numéricas en la precisión de punto flotante de los acumuladores en hardware (CPU vs. núcleos CUDA) que, en casos de alta ambigüedad visual como este, pueden empujar la salida Softmax drásticamente hacia un extremo u otro.
 
 **3. Si el porcentaje más alto es menor al 50%, ¿confiarían en esa predicción? ¿Por qué?**
 *Respuesta:* No, porque la función Softmax obliga a que las probabilidades sumen 100%. Si la clase ganadora tiene menos del 50%, significa que la red neuronal vio características mixtas (ej. parece un 3 pero también tiene curvas de un 8). Sería más seguro clasificarlo como "Desconocido".
