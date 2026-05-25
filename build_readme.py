@@ -1,4 +1,6 @@
-# Entrenamiento de Redes Neuronales en GPU
+import os
+
+readme = """# Entrenamiento de Redes Neuronales en GPU
 * CUDA con PyTorch en Google Colab
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Albonire/parcial-gpu-pytorch-colab/blob/main/Taller_CUDA_PyTorch.ipynb)
@@ -328,3 +330,9 @@
 
 **3. Si tuvieran que explicarle este taller a alguien que nunca ha programado, ¿cómo describirían en una sola analogía lo que hace una red neuronal entrenándose en una GPU?**
 *Respuesta:* Imagina que quieres enseñarle a un niño (la red neuronal) a reconocer números. En lugar de explicarle la geometría de cada curva uno a la vez (CPU), le sientas frente a 100 pantallas diferentes y le pasas 100 flashcards al mismo tiempo para que aprenda más rápido (GPU). Cada vez que el niño se equivoca, tú le das la respuesta correcta, y él recalibra levemente su intuición para el próximo intento (Backpropagation).
+"""
+
+with open('/home/fabian/Documents/university/Paralelas/PARCIAL/parcial-gpu-pytorch-colab/README.md', 'w', encoding='utf-8') as f:
+    f.write(readme)
+
+print("README.md regenerado")
